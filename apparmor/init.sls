@@ -6,3 +6,9 @@ reload-apparmor-profiles:
     - watch:
       - file: /etc/apparmor.d/*
     {% endif %}
+
+apparmor:
+  pkg.installed:
+    - name: apparmor
+    - require_in:
+        - file: /etc/apparmor.d/*
